@@ -3,7 +3,7 @@ exports.__esModule = true;
 var fs = require("fs");
 var inputArray = fs.readFileSync('input.txt').toString().split("\n").map(function (x) { return Number(x); });
 var targetValue = 2020;
-// Problem 1
+// Problem 1a
 var problem1 = function (arr, target) {
     var sortedArr = arr.sort(function (n1, n2) { return n1 - n2; });
     var leftPointer = 0;
