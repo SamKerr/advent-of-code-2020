@@ -1,22 +1,15 @@
-import { count } from 'console';
 import * as fs from 'fs';
 
 type HitOrMiss = 1 | 0;
 type Grid = HitOrMiss[][];
 interface Slope {
-    right: number,
-    down: number,
+    right: number;
+    down: number;
 };
 
 const inputData = fs.readFileSync('input.txt').toString().split("\r\n");
 const hitOrMiss = (b: boolean): HitOrMiss => b ? 1 : 0;
-const grid: Grid = inputData.map(str => {
-    const row: HitOrMiss[] = [];
-    for (let c of str) {
-        row.push(hitOrMiss(c === '#'));
-    }
-    return row;
-});
+const grid: Grid = inputData.map(str =>  str.split("").forEach(c => hitOrMiss(c === '#')));
 
 const countHitsOnSlope = (grid: Grid, slope: Slope) => {
     let currentHeight = 0;
